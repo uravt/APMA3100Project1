@@ -1,7 +1,6 @@
 import random
-
-import pandas
 import pandas as pd
+import matplotlib.pyplot as plt
 
 p = 0.3
 alpha = 0.1
@@ -19,9 +18,20 @@ def run_iteration():
             cycle += 1
 
 
-trials = []
-for i in range(10000):
-    trials.append({"Trial": i, "X": run_iteration()})
+def generate_trials():
+    trials = []
+    for i in range(10000):
+        trials.append({"Trial": i, "X": run_iteration()})
 
-pd.DataFrame(trials).to_csv("output.csv", index=False)
+    pd.DataFrame(trials).to_csv("output.csv", index=False)
 
+
+
+df = pd.read_csv("output.csv")
+
+# histogram of results
+plt.hist(df["X"], bins=20)
+plt.xlabel("Trial Result")
+plt.ylabel("Frequency")
+plt.title("X")
+plt.show()
