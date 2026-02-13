@@ -31,7 +31,7 @@ for p in [0.1, 0.2, 0.3, 0.4, 0.5]:
     df = pd.read_csv("output_p="+str(p)+".csv")
 
     total = 0
-    counts = df["X"].value_counts().sort_index()  # Series indexed by X value
+    counts = df["X"].value_counts().sort_index()
     print("p: "+str(p))
     print("\nCounts by realization value (X):")
     for x_val, cnt in counts.items():
