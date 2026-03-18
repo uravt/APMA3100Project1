@@ -15,8 +15,9 @@ def run_iteration():
             print(cycle)
             return cycle
         else:
-            prob = min(1, prob + (cycle - 1) * alpha)
             cycle += 1
+            prob = min(1, p + (cycle - 1) * alpha)
+            
 
 
 def generate_trials():
